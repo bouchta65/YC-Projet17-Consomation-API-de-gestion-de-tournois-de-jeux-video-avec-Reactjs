@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Gestion de Tournois de Jeux Vidéo avec ReactJS
+## Contexte du Projet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Suite au développement de l’API dédiée à la gestion des tournois de jeux vidéo, nous avons conçu cette application front-end en ReactJS. Cette application permet aux utilisateurs de :
 
-## Available Scripts
+- Consulter l’ensemble des tournois.
+- Accéder aux détails des matchs.
+- S’inscrire et suivre en temps réel l’évolution des compétitions.
 
-In the project directory, you can run:
+L’objectif est de créer une interface utilisateur fluide, moderne et intuitive, tout en assurant une intégration transparente avec l’API backend et en mettant l’accent sur la performance et la réactivité.
 
-### `npm start`
+## Architecture et Outils
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Communication avec l’API Backend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Axios/Fetch API** : Pour effectuer les appels vers l’API backend.
+- **JWT (JSON Web Token)** : Pour la gestion de l’authentification et la protection des routes privées.
 
-### `npm test`
+### Sécurité et Authentification
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Gestion des Tokens** : Stockage sécurisé des tokens d’authentification via `localStorage` ou `cookies`.
+- **Middleware d’Interception** : Ajout automatique des tokens dans les requêtes HTTP.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Structure de l’Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Authentification
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Composants & Pages
+- **Inscription** : Formulaire permettant à un utilisateur de s’inscrire via l'API `[POST] /api/register`.
+- **Connexion** : Formulaire de connexion pour récupérer un token d’accès via `[POST] /api/login`.
+- **Déconnexion** : Bouton pour supprimer le token et rediriger l’utilisateur vers la page de connexion.
+- **Profil** : Affichage des informations de l’utilisateur via `[GET] /api/user`.
 
-### `npm run eject`
+### 2. Gestion des Tournois
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Composants & Pages
+- **Liste des Tournois** : Affiche tous les tournois via `[GET] /api/tournaments`.
+- **Détails du Tournoi** : Page détaillant un tournoi spécifique via `[GET] /api/tournaments/{id}`.
+- **Création & Modification** : Formulaires pour créer ou modifier un tournoi via `[POST] /api/tournaments` et `[PUT] /api/tournaments/{id}`.
+- **Suppression** : Action pour supprimer un tournoi via `[DELETE] /api/tournaments/{id}`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Inscription des Joueurs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Fonctionnalités
+- **Inscription à un Tournoi** : Formulaire permettant d’inscrire un joueur à un tournoi via `[POST] /api/tournaments/{tournament_id}/players`.
+- **Liste des Joueurs** : Affichage des joueurs inscrits à un tournoi.
+- **Désinscription** : Option de désinscription d’un joueur via `[DELETE] /api/tournaments/{tournament_id}/players/{player_id}`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 4. Gestion des Matchs et Scores
 
-## Learn More
+#### Composants & Pages
+- **Création de Match** : Interface pour planifier un match entre des joueurs via `[POST] /api/matches`.
+- **Liste et Détails des Matchs** : Affichage des matchs programmés via `[GET] /api/matches` et détails d’un match spécifique via `[GET] /api/matches/{id}`.
+- **Mise à Jour des Scores** : Formulaire pour ajouter ou modifier les scores via `[PUT] /api/matches/{id}/scores` ou `[POST] /api/matches/{id}/scores`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
