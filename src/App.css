@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+/* Add these styles to your existing App.css */
+
+.tournament-players-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.list-group-item {
+  transition: background-color 0.2s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.list-group-item:hover {
+  background-color: #f8f9fa;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.badge {
+  font-size: 0.85em;
+  padding: 0.4em 0.8em;
+}
+
+.badge.bg-info {
+  background-color: #17a2b8 !important;
+}
+
+.player-count {
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+.player-status {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.player-status.joined {
+  color: #28a745;
+}
+
+.player-status.available {
+  color: #17a2b8;
+}
+
+.player-actions {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.tournament-players-header {
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+} 
