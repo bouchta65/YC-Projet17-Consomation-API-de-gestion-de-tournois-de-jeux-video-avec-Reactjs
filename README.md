@@ -53,6 +53,3 @@ L’objectif est de créer une interface utilisateur fluide, moderne et intuitiv
 - **Création de Match** : Interface pour planifier un match entre des joueurs via `[POST] /api/matches`.
 - **Liste et Détails des Matchs** : Affichage des matchs programmés via `[GET] /api/matches` et détails d’un match spécifique via `[GET] /api/matches/{id}`.
 - **Mise à Jour des Scores** : Formulaire pour ajouter ou modifier les scores via `[PUT] /api/matches/{id}/scores` ou `[POST] /api/matches/{id}/scores`.
-
-
-
